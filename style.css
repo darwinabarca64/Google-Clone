@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* --- ESTILO DEL LOGO (SOLO TEXTO) --- */
+.logo-text {
+    font-size: 80px;
+    font-weight: 500;
+    letter-spacing: -5px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.logo-text .blue { color: #4285f4; }
+.logo-text .red { color: #ea4335; }
+.logo-text .yellow { color: #fbbc05; }
+.logo-text .green { color: #34a853; }
+
+.country {
+    font-size: 15px;
+    color: #777;
+    letter-spacing: normal;
+    position: absolute;
+    bottom: 15px;
+    right: -55px;
+}
+
+/* --- ESTILO DEL ICONO DE 9 PUNTOS (TABLA) --- */
+.iconos-cuadricula {
+    border-collapse: separate;
+    border-spacing: 2px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.iconos-cuadricula td {
+    width: 4px;
+    height: 4px;
+    background-color: #737373;
+}
+
+/* --- RESTO DEL DISEÑO --- */
+.top-nav {
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px 25px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-right a {
+    text-decoration: none;
+    color: #404040;
+    font-size: 13px;
+}
+
+.signin-btn {
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 2px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+}
+
+.search-input {
+    width: 580px;
+    padding: 10px;
+    border: 1px solid #dfe1e5;
+    outline: none;
+}
+
+.buttons {
+    margin-top: 25px;
+}
+
+.buttons button {
+    background-color: #f8f9fa;
+    border: 1px solid #f8f9fa;
+    color: #3c4043;
+    padding: 9px 16px;
+    margin: 5px;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.languages {
+    margin-top: 25px;
+    font-size: 13px;
+}
+
+.languages a {
+    color: #1a0dab;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.footer {
+    background-color: #f2f2f2;
+    border-top: 1px solid #e4e4e4;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 25px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #5f6368;
+    font-size: 13px;
+    margin: 0 10px;
+}
