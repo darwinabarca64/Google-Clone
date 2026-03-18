@@ -48,24 +48,62 @@ body {
     background-color: #737373;
 }
 
+/* Alineación básica para situarlo a la derecha */
+.header-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px;
+    background-color: #fff;
+}
+
+/* Estilo del círculo */
+.google-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Efecto hover tipo Google */
+.google-avatar:hover {
+    box-shadow: 0 1px 3px rgba(60,64,67, 0.3);
+}
+
+/* Ajuste de la imagen */
+.google-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /* --- RESTO DEL DISEÑO --- */
 .top-nav {
     display: flex;
-    justify-content: flex-end;
-    padding: 15px 25px;
+    justify-content: space-between; /* Empuja los grupos a los extremos */
+    align-items: center;            /* Centra los elementos verticalmente */
+    padding: 10px 20px;
+    font-family: Arial, sans-serif;
 }
 
-.nav-right {
+.nav-left, .nav-right {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 15px; /* Espacio entre los enlaces */
 }
 
-.nav-right a {
+.top-nav a {
     text-decoration: none;
-    color: #404040;
+    color: #5f6368;
     font-size: 13px;
 }
+
+.top-nav a:hover {
+    text-decoration: underline;
+}
+
 
 .signin-btn {
     background-color: #4285f4;
@@ -84,14 +122,91 @@ body {
     align-items: center;
     padding-top: 80px;
 }
-
-.search-input {
-    width: 580px;
-    padding: 10px;
-    border: 1px solid #dfe1e5;
-    outline: none;
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    background-color: #fff; /* Fondo blanco de Google */
 }
 
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    height: 52px;
+    padding: 0 8px 0 16px;
+    border: 1px solid #dfe1e5;
+    border-radius: 28px; /* Hace la forma de cápsula/píldora */
+    transition: box-shadow 0.2s;
+}
+
+.search-bar:hover {
+    background-color: #fff;
+    box-shadow: 0 1px 6px rgba(32,33,36, 0.28);
+    border-color: transparent;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #202124;
+    padding: 0 10px;
+}
+
+.search-icon {
+    color: #70757a;
+    font-size: 20px;
+}
+
+.tools-container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.tool-btn {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    color: #444746;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.tool-btn:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+/* EL BOTÓN DE MODO IA */
+.ai-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #f0f4f9; /* Color grisáceo/azulado claro */
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    margin-left: 8px;
+    font-family: 'Google Sans', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1f1f1f;
+    cursor: pointer;
+}
+
+.ai-button:hover {
+    background-color: #e3eaf3;
+}
+
+.ai-icon {
+    font-size: 18px;
+    color: #444746;
+}
 .buttons {
     margin-top: 25px;
 }

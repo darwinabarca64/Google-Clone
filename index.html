@@ -5,10 +5,16 @@
     <meta charset="UTF-8">
     <title>Google Clone</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 </head>
 
 <body>
     <header class="top-nav">
+        <div class="nav-left">
+            <a href="#">Sobre Google</a>
+            <a href="#">Tienda</a>
+        </div>
+
         <div class="nav-right">
             <a href="#">Modo IA</a>
             <a href="#">Gmail</a>
@@ -32,7 +38,20 @@
                 </tr>
             </table>
 
+            <!-- Contenedor del avatar -->
+            <div class="google-avatar" onclick="changeImage()">
+                <img id="random-avatar" src="https://picsum.photos/200" alt="Imagen circular">
+            </div>
         </div>
+
+        <script>
+            function changeImage() {
+                const img = document.getElementById('random-avatar');
+                // Añadimos un parámetro random para que el navegador no use la imagen en caché
+                img.src = "https://picsum.photos" + Math.random();
+            }
+        </script>
+
     </header>
 
     <!-- Contenido Principal -->
@@ -44,17 +63,34 @@
             <span class="country">España</span>
         </div>
 
-        <div class="search-container">
-            <input type="text" class="search-input">
-        </div>
+        <div class="search-wrapper">
+            <div class="search-bar">
+                <!-- Icono Lupa -->
+                <span class="material-icons-outlined search-icon">search</span>
 
+                <!-- Input de texto -->
+                <input type="text" placeholder="Buscar en Google o escribir una URL" class="search-input">
+
+                <!-- Herramientas (Mic, Lens y Modo IA) -->
+                <div class="tools-container">
+                    <button class="tool-btn"><span class="material-icons-outlined">mic</span></button>
+                    <button class="tool-btn"><span class="material-icons-outlined">camera_alt</span></button>
+
+                    <button class="ai-button">
+                        <span class="material-icons-outlined ai-icon">auto_awesome</span>
+                        Modo IA
+                    </button>
+                </div>
+            </div>
+       
+        </div>
         <div class="buttons">
             <button>Buscar con Google</button>
             <button>Voy a tener suerte</button>
         </div>
 
         <div class="languages">
-            Google.es también en: <a href="#">català</a> <a href="#">galego</a> <a href="#">euskara</a>
+            Google.es también en: <a href="#">Català</a> <a href="#">Galego</a> <a href="#">Euskara</a>
         </div>
     </main>
 
