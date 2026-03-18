@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Google Clone</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
 </head>
 
 <body>
@@ -65,24 +65,27 @@
 
         <div class="search-wrapper">
             <div class="search-bar">
-                <!-- Icono Lupa -->
-                <span class="material-icons-outlined search-icon">search</span>
-
-                <!-- Input de texto -->
-                <input type="text" placeholder="Buscar en Google o escribir una URL" class="search-input">
-
-                <!-- Herramientas (Mic, Lens y Modo IA) -->
+                <!-- Parte izquierda: Icono + y Texto -->
+                <div class="search-input-wrapper">
+                    <button class="btn-plus">
+                        <img src="iconos/plus-icon.svg" alt="Añadir" class="icon-svg-plus">
+                    </button>
+                    <input type="text" placeholder="Buscar en Google o escribir una URL  " class="search-input">
+                </div>
+                <!-- Parte derecha: Herramientas -->
                 <div class="tools-container">
-                    <button class="tool-btn"><span class="material-icons-outlined">mic</span></button>
-                    <button class="tool-btn"><span class="material-icons-outlined">camera_alt</span></button>
-
+                    <button class="tool-btn">
+                        <img src="iconos/mic.svg" alt="Mic" class="icon-svg">
+                    </button>
+                    <button class="tool-btn">
+                        <img src="iconos/lens.svg" alt="Lens" class="icon-svg lens-img">
+                    </button>
                     <button class="ai-button">
-                        <span class="material-icons-outlined ai-icon">auto_awesome</span>
-                        Modo IA
+                        <img src="iconos/ia.svg" alt="IA" class="icon-svg">
+                        <span>Modo IA</span>
                     </button>
                 </div>
             </div>
-       
         </div>
         <div class="buttons">
             <button>Buscar con Google</button>

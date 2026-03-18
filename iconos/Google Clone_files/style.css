@@ -20,21 +20,10 @@ body {
     position: relative;
 }
 
-.logo-text .blue {
-    color: #4285f4;
-}
-
-.logo-text .red {
-    color: #ea4335;
-}
-
-.logo-text .yellow {
-    color: #fbbc05;
-}
-
-.logo-text .green {
-    color: #34a853;
-}
+.logo-text .blue { color: #4285f4; }
+.logo-text .red { color: #ea4335; }
+.logo-text .yellow { color: #fbbc05; }
+.logo-text .green { color: #34a853; }
 
 .country {
     font-size: 15px;
@@ -75,12 +64,12 @@ body {
     overflow: hidden;
     cursor: pointer;
     transition: box-shadow 0.2s;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0,0,0,0.1);
 }
 
 /* Efecto hover tipo Google */
 .google-avatar:hover {
-    box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3);
+    box-shadow: 0 1px 3px rgba(60,64,67, 0.3);
 }
 
 /* Ajuste de la imagen */
@@ -93,20 +82,16 @@ body {
 /* --- RESTO DEL DISEÑO --- */
 .top-nav {
     display: flex;
-    justify-content: space-between;
-    /* Empuja los grupos a los extremos */
-    align-items: center;
-    /* Centra los elementos verticalmente */
+    justify-content: space-between; /* Empuja los grupos a los extremos */
+    align-items: center;            /* Centra los elementos verticalmente */
     padding: 10px 20px;
     font-family: Arial, sans-serif;
 }
 
-.nav-left,
-.nav-right {
+.nav-left, .nav-right {
     display: flex;
     align-items: center;
-    gap: 15px;
-    /* Espacio entre los enlaces */
+    gap: 15px; /* Espacio entre los enlaces */
 }
 
 .top-nav a {
@@ -137,103 +122,49 @@ body {
     align-items: center;
     padding-top: 80px;
 }
-
 .search-wrapper {
     display: flex;
     justify-content: center;
-    width: 100%;
-    padding: 20px;
-    background-color: #fff;
-    /* Fondo blanco de Google */
+    padding-top: 50px;
+    background-color: #fff; /* Fondo blanco de Google */
 }
 
-/* Contenedor del input para centrar el texto verticalmente */
-.search-input-wrapper {
-    display: flex;
-    align-items: center;
-    /* Centra verticalmente el + y el texto */
-    flex: 1;
-    min-width: 0;
-    /* Permite que el input se reduzca correctamente */
-}
-
-/* Estilo de la barra blanca principal */
 .search-bar {
     display: flex;
     align-items: center;
-    background-color: #ffffff;
-    border-radius: 50px;
-    padding: 4px 10px 4px 15px;
-    /* Ajuste de márgenes internos */
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
+    height: 52px;
+    padding: 0 8px 0 16px;
     border: 1px solid #dfe1e5;
-    /* Borde sutil opcional */
-    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.1);
-        /* Sombra suave Google style */
+    border-radius: 28px; /* Hace la forma de cápsula/píldora */
+    transition: box-shadow 0.2s;
 }
-
-/* Ajuste para que Lens y los demás iconos se vean bien */
-.icon-svg {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    /* Evita que la imagen se deforme */
-    display: block;
-}
-
-/* Si la imagen de Lens es muy grande, la limitamos aquí */
-.lens-img {
-    width: 22px;
-}
-
 
 .search-bar:hover {
     background-color: #fff;
-    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+    box-shadow: 0 1px 6px rgba(32,33,36, 0.28);
     border-color: transparent;
 }
 
-.btn-plus {
-    background: none;
-    border: none;
-    padding: 8px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    border-radius: 50%;
-    flex-shrink: 0;
-    /* Evita que el botón se reduzca */
-}
-
-.btn-plus:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
 .search-input {
-    width: 100%;
+    flex: 1;
     border: none;
     outline: none;
     font-size: 16px;
     color: #202124;
-    background: transparent;
-    padding: 0 15px;
-
+    padding: 0 10px;
 }
 
-.icon-svg-plus {
-    width: 24px;
-    /* Ajusta el tamaño según tu imagen */
-    height: 24px;
+.search-icon {
+    color: #70757a;
+    font-size: 20px;
 }
 
 .tools-container {
     display: flex;
     align-items: center;
-    gap: 0px;
-    flex-shrink: 0;
-    /* Evita que el contenedor se reduzca */
-
+    gap: 4px;
 }
 
 .tool-btn {
@@ -241,32 +172,31 @@ body {
     border: none;
     padding: 8px;
     cursor: pointer;
-    border-radius: 50%;
+    color: #444746;
     display: flex;
     align-items: center;
-
+    border-radius: 50%;
 }
 
 .tool-btn:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(0,0,0,0.05);
 }
-
 
 /* EL BOTÓN DE MODO IA */
 .ai-button {
     display: flex;
     align-items: center;
     gap: 8px;
-    background-color: #f0f4f9;
-    /* Color grisáceo/azulado claro */
+    background-color: #f0f4f9; /* Color grisáceo/azulado claro */
     border: none;
-    border-radius: 24px;
+    border-radius: 20px;
     padding: 8px 16px;
-    margin-left: 10px;
+    margin-left: 8px;
+    font-family: 'Google Sans', Arial, sans-serif;
     font-size: 14px;
     font-weight: 500;
-    white-space: nowrap;
-    flex-shrink: 0;
+    color: #1f1f1f;
+    cursor: pointer;
 }
 
 .ai-button:hover {
@@ -277,12 +207,8 @@ body {
     font-size: 18px;
     color: #444746;
 }
-
 .buttons {
     margin-top: 25px;
-    display: flex;
-    justify-content: center;
-    gap: 12px;
 }
 
 .buttons button {
@@ -290,21 +216,9 @@ body {
     border: 1px solid #f8f9fa;
     color: #3c4043;
     padding: 9px 16px;
+    margin: 5px;
     border-radius: 4px;
-    font-size: 14px;
-    font-family: arial, sans-serif;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.buttons button:hover {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-    /* Sombra muy sutil */
-    background-color: #f8f9fa;
-    border: 1px solid #dadce0;
-    /* Se nota un borde gris claro al pasar el ratón */
-    color: #202124;
-    /* El texto se oscurece un poco */
+    font-size: 13px;
 }
 
 .languages {
