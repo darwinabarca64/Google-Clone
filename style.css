@@ -1,334 +1,281 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
+/* --- CONFIGURACIÓN GLOBAL --- */
+* { 
+    margin: 0; /* Elimina el espacio exterior por defecto de todos los elementos */
+    padding: 0; /* Elimina el espacio interior por defecto de todos los elementos */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho/alto total del elemento */
+    font-family: Arial, sans-serif; /* Define la tipografía principal del proyecto */
+} 
 
-body {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-}
+body { 
+    display: flex; /* Activa el modelo de caja flexible para organizar hijos */
+    flex-direction: column; /* Alinea los elementos hijos (header, main, footer) en vertical */
+    height: 100vh; /* Obliga al cuerpo a ocupar el 100% de la altura de la ventana del navegador */
+} 
 
-/* --- ESTILO DEL LOGO (SOLO TEXTO) --- */
-.logo-text {
-    font-size: 80px;
-    font-weight: 500;
-    letter-spacing: -5px;
-    margin-bottom: 20px;
-    position: relative;
-}
+/* --- ESTILO DEL LOGO (SOLO TEXTO) --- */ 
+.logo-text { 
+    font-size: 80px; /* Tamaño de fuente muy grande para el logo central */
+    font-weight: 500; /* Grosor de letra medio (estilo Google) */
+    letter-spacing: -5px; /* Junta las letras entre sí para un look de diseño de marca */
+    margin-bottom: 20px; /* Separa el logo de la barra de búsqueda hacia abajo */
+    position: relative; /* Permite que elementos hijos (como .country) se posicionen respecto a este contenedor */
+} 
 
-.logo-text .blue {
-    color: #4285f4;
-}
+/* Colores específicos para cada letra del logo */
+.logo-text .blue { color: #4285f4; } 
+.logo-text .red { color: #ea4335; } 
+.logo-text .yellow { color: #fbbc05; } 
+.logo-text .green { color: #34a853; } 
 
-.logo-text .red {
-    color: #ea4335;
-}
+.country { 
+    font-size: 15px; /* Tamaño de fuente pequeño para el nombre del país */
+    color: #777; /* Color gris suave */
+    letter-spacing: normal; /* Resetea el espaciado negativo del padre (.logo-text) */
+    position: absolute; /* Saca el elemento del flujo y lo ubica manualmente */
+    bottom: 15px; /* Lo alinea a 15px del borde inferior del logo */
+    right: -55px; /* Lo desplaza a la derecha fuera del área del texto principal */
+} 
 
-.logo-text .yellow {
-    color: #fbbc05;
-}
+/* --- ESTILO DEL ICONO DE 9 PUNTOS (MENU APPS) --- */ 
+.iconos-cuadricula { 
+    border-collapse: separate; /* Permite que haya espacio entre las celdas de la tabla */
+    border-spacing: 2px; /* Define el espacio exacto entre los puntos de la cuadrícula */
+    cursor: pointer; /* Cambia el cursor a mano para indicar que es clickeable */
+    margin: 0 10px; /* Añade margen lateral para separarlo de otros iconos */
+} 
 
-.logo-text .green {
-    color: #34a853;
-}
+.iconos-cuadricula td { 
+    width: 4px; /* Ancho de cada punto individual */
+    height: 4px; /* Alto de cada punto individual */
+    background-color: #737373; /* Color gris de los puntos del menú */
+} 
 
-.country {
-    font-size: 15px;
-    color: #777;
-    letter-spacing: normal;
-    position: absolute;
-    bottom: 15px;
-    right: -55px;
-}
+/* --- CABECERA --- */
+.header-container { 
+    display: flex; /* Activa flexbox para la cabecera */
+    justify-content: flex-end; /* Empuja todo el contenido (avatar, iconos) a la derecha */
+    padding: 15px; /* Espaciado interno para que no toque los bordes de la pantalla */
+    background-color: #fff; /* Fondo blanco puro */
+} 
 
-/* --- ESTILO DEL ICONO DE 9 PUNTOS (TABLA) --- */
-.iconos-cuadricula {
-    border-collapse: separate;
-    border-spacing: 2px;
-    cursor: pointer;
-    margin: 0 10px;
-}
+.google-avatar { 
+    width: 32px; /* Ancho del contenedor del avatar */
+    height: 32px; /* Alto del contenedor del avatar */
+    border-radius: 50%; /* Hace que el contenedor sea un círculo perfecto */
+    overflow: hidden; /* Recorta cualquier parte de la imagen que sobresalga del círculo */
+    cursor: pointer; /* Indica que se puede hacer click */
+    transition: box-shadow 0.2s; /* Suaviza la aparición de la sombra al pasar el ratón */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Borde casi invisible para definir el círculo */
+} 
 
-.iconos-cuadricula td {
-    width: 4px;
-    height: 4px;
-    background-color: #737373;
-}
+.google-avatar:hover { 
+    box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3); /* Añade una sombra sutil al pasar el mouse */
+} 
 
-/* Alineación básica para situarlo a la derecha */
-.header-container {
-    display: flex;
-    justify-content: flex-end;
-    padding: 15px;
-    background-color: #fff;
-}
+.google-avatar img { 
+    width: 100%; /* La imagen ocupa todo el ancho del círculo */
+    height: 100%; /* La imagen ocupa todo el alto del círculo */
+    object-fit: cover; /* Ajusta la imagen para llenar el espacio sin deformarse */
+} 
 
-/* Estilo del círculo */
-.google-avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    overflow: hidden;
-    cursor: pointer;
-    transition: box-shadow 0.2s;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-}
+/* --- NAVEGACIÓN SUPERIOR --- */ 
+.top-nav { 
+    display: flex; /* Organiza los links en línea */
+    justify-content: space-between; /* Separa los grupos de links a los extremos izquierdo y derecho */
+    align-items: center; /* Alinea los elementos verticalmente al centro */
+    padding: 10px 20px; /* Margen interno superior/inferior y lateral */
+    font-family: Arial, sans-serif; /* Reafirma la tipografía (observación: ya heredada de *) */
+} 
 
-/* Efecto hover tipo Google */
-.google-avatar:hover {
-    box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3);
-}
+.nav-left, .nav-right { 
+    display: flex; /* Alinea los elementos internos en fila */
+    align-items: center; /* Centra los elementos verticalmente */
+    gap: 15px; /* Crea una separación constante entre cada enlace o icono */
+} 
 
-/* Ajuste de la imagen */
-.google-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+.top-nav a { 
+    text-decoration: none; /* Quita el subrayado azul por defecto de los enlaces */
+    color: #5f6368; /* Color gris oscuro típico de Google */
+    font-size: 13px; /* Tamaño de fuente pequeño para los enlaces de navegación */
+} 
 
-/* --- RESTO DEL DISEÑO --- */
-.top-nav {
-    display: flex;
-    justify-content: space-between;
-    /* Empuja los grupos a los extremos */
-    align-items: center;
-    /* Centra los elementos verticalmente */
-    padding: 10px 20px;
-    font-family: Arial, sans-serif;
-}
+.top-nav a:hover { 
+    text-decoration: underline; /* Aparece el subrayado solo cuando el usuario pasa el ratón */
+} 
 
-.nav-left,
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    /* Espacio entre los enlaces */
-}
+/* --- CONTENIDO CENTRAL --- */
+.main-content { 
+    flex-grow: 1; /* Hace que esta sección crezca para ocupar todo el espacio entre el header y el footer */
+    display: flex; /* Permite centrar el contenido interno */
+    flex-direction: column; /* Organiza el logo y la barra en columna */
+    align-items: center; /* Centra horizontalmente el logo y la barra */
+    padding-top: 80px; /* Baja el contenido para que no quede pegado a la parte superior */
+} 
 
-.top-nav a {
-    text-decoration: none;
-    color: #5f6368;
-    font-size: 13px;
-}
+.search-wrapper { 
+    display: flex; /* Flexbox para el contenedor de búsqueda */
+    justify-content: center; /* Centra la barra de búsqueda */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 20px; /* Margen interno para que no toque los bordes en móviles */
+    background-color: #fff; /* Fondo blanco */
+} 
 
-.top-nav a:hover {
-    text-decoration: underline;
-}
+.search-input-wrapper { 
+    display: flex; /* Alinea los elementos dentro de la zona de escritura */
+    align-items: center; /* Centra verticalmente el cursor y el texto */
+    flex: 1; /* Ocupa todo el espacio sobrante dentro de la barra */
+    min-width: 0; /* Evita que el input rompa el diseño si el texto es muy largo */
+} 
 
+.search-bar { 
+    display: flex; /* Alinea iconos e input en una sola fila */
+    align-items: center; /* Centra verticalmente todos los iconos dentro de la barra */
+    background-color: #ffffff; /* Fondo blanco de la cápsula */
+    border-radius: 50px; /* Crea la forma de píldora redondeada */
+    padding: 4px 10px 4px 15px; /* Espaciado interno: más a la izquierda para el texto */
+    width: 100%; /* Ocupa el total de su contenedor */
+    max-width: 600px; /* Limita el ancho máximo para que no se vea demasiado larga en PC */
+    border: 1px solid #dfe1e5; /* Color del borde sutil */
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.1); /* Sombra muy suave para dar profundidad */
+} 
 
-.signin-btn {
-    background-color: #4285f4;
-    color: white;
-    border: none;
-    padding: 7px 12px;
-    border-radius: 2px;
-    font-weight: bold;
-    cursor: pointer;
-}
+.icon-svg { 
+    width: 24px; /* Ancho estándar para los iconos de la barra */
+    height: 24px; /* Alto estándar para los iconos de la barra */
+    object-fit: contain; /* Asegura que el icono no se deforme al escalar */
+    display: block; /* Elimina espacios extra debajo de la imagen */
+} 
 
-.main-content {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 80px;
-}
+.lens-img { 
+    width: 22px; /* Ajuste específico ligeramente más pequeño para el icono de Lens */
+} 
 
-.search-wrapper {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    padding: 20px;
-    background-color: #fff;
-    /* Fondo blanco de Google */
-}
+.search-bar:hover { 
+    background-color: #fff; /* Mantiene el fondo blanco */
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28); /* La sombra se vuelve más intensa al pasar el ratón */
+    border-color: transparent; /* El borde se oculta para resaltar la sombra (efecto elevación) */
+} 
 
-/* Contenedor del input para centrar el texto verticalmente */
-.search-input-wrapper {
-    display: flex;
-    align-items: center;
-    /* Centra verticalmente el + y el texto */
-    flex: 1;
-    min-width: 0;
-    /* Permite que el input se reduzca correctamente */
-}
+.btn-plus { 
+    background: none; /* Quita el fondo de botón */
+    border: none; /* Quita el borde de botón */
+    padding: 8px; /* Área de click alrededor del icono */
+    cursor: pointer; /* Indica que es clickeable */
+    display: flex; /* Centra el contenido del botón */
+    align-items: center; /* Centra verticalmente */
+    border-radius: 50%; /* Hace que el área de hover sea un círculo */
+    flex-shrink: 0; /* Evita que el botón se aplaste si hay poco espacio */
+} 
 
-/* Estilo de la barra blanca principal */
-.search-bar {
-    display: flex;
-    align-items: center;
-    background-color: #ffffff;
-    border-radius: 50px;
-    padding: 4px 10px 4px 15px;
-    /* Ajuste de márgenes internos */
-    width: 100%;
-    max-width: 600px;
-    border: 1px solid #dfe1e5;
-    /* Borde sutil opcional */
-    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.1);
-        /* Sombra suave Google style */
-}
+.btn-plus:hover { 
+    background-color: rgba(0, 0, 0, 0.05); /* Fondo gris muy tenue al pasar el ratón */
+} 
 
-/* Ajuste para que Lens y los demás iconos se vean bien */
-.icon-svg {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    /* Evita que la imagen se deforme */
-    display: block;
-}
+.search-input { 
+    width: 100%; /* El campo de texto ocupa todo el espacio central */
+    border: none; /* Quita el borde del input */
+    outline: none; /* Quita el borde azul resaltado al hacer click (foco) */
+    font-size: 16px; /* Tamaño de letra cómodo para escribir */
+    color: #202124; /* Color de texto casi negro */
+    background: transparent; /* Deja ver el fondo de la .search-bar */
+    padding: 0 15px; /* Espacio lateral para que el texto no toque los iconos */
+} 
 
-/* Si la imagen de Lens es muy grande, la limitamos aquí */
-.lens-img {
-    width: 22px;
-}
+.icon-svg-plus { 
+    width: 24px; /* Tamaño del icono de suma */
+    height: 24px; /* Tamaño del icono de suma */
+} 
 
+.tools-container { 
+    display: flex; /* Agrupa los iconos de la derecha (voz, lente) */
+    align-items: center; /* Alinea los iconos verticalmente */
+    gap: 0px; /* Sin espacio entre ellos (el espacio lo da el padding de los botones) */
+    flex-shrink: 0; /* Evita que los iconos se reduzcan de tamaño */
+} 
 
-.search-bar:hover {
-    background-color: #fff;
-    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
-    border-color: transparent;
-}
+.tool-btn { 
+    background: none; /* Quita estilo por defecto */
+    border: none; /* Quita estilo por defecto */
+    padding: 8px; /* Espacio para el efecto hover */
+    cursor: pointer; /* Puntero de mano */
+    border-radius: 50%; /* Hover circular */
+    display: flex; /* Centra el icono */
+    align-items: center; 
+} 
 
-.btn-plus {
-    background: none;
-    border: none;
-    padding: 8px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    border-radius: 50%;
-    flex-shrink: 0;
-    /* Evita que el botón se reduzca */
-}
+.tool-btn:hover { 
+    background-color: rgba(0, 0, 0, 0.05); /* Efecto visual al interactuar */
+} 
 
-.btn-plus:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-}
+/* EL BOTÓN DE MODO IA */ 
+.ai-button { 
+    display: flex; /* Alinea icono de IA y texto en fila */
+    align-items: center; /* Centra verticalmente */
+    gap: 8px; /* Espacio entre el icono de IA y la palabra */
+    background-color: #f0f4f9; /* Color de fondo suave (estilo Gemini/IA) */
+    border: none; /* Sin borde */
+    border-radius: 24px; /* Forma redondeada tipo pastilla */
+    padding: 8px 16px; /* Espaciado interno */
+    margin-left: 10px; /* Separación de los otros iconos de la barra */
+    font-size: 14px; /* Tamaño de letra de la etiqueta */
+    font-weight: 500; /* Grosor de letra medio */
+    white-space: nowrap; /* Evita que el texto salte a otra línea */
+    flex-shrink: 0; /* Mantiene su tamaño original siempre */
+} 
 
-.search-input {
-    width: 100%;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    color: #202124;
-    background: transparent;
-    padding: 0 15px;
+.ai-button:hover { 
+    background-color: #e3eaf3; /* Oscurece ligeramente el fondo al pasar el mouse */
+} 
 
-}
+.ai-icon { 
+    font-size: 18px; /* Tamaño del icono o emoji de IA */
+    color: #444746; /* Color grisáceo para el icono */
+} 
 
-.icon-svg-plus {
-    width: 24px;
-    /* Ajusta el tamaño según tu imagen */
-    height: 24px;
-}
+/* BOTONES INFERIORES */
+.buttons { 
+    margin-top: 25px; /* Separa los botones de la barra de búsqueda */
+    display: flex; /* Alinea los botones uno al lado del otro */
+    justify-content: center; /* Centra el grupo de botones */
+    gap: 12px; /* Espacio entre el primer y segundo botón */
+} 
 
-.tools-container {
-    display: flex;
-    align-items: center;
-    gap: 0px;
-    flex-shrink: 0;
-    /* Evita que el contenedor se reduzca */
+.buttons button { 
+    background-color: #f8f9fa; /* Fondo gris casi blanco */
+    border: 1px solid #f8f9fa; /* Borde del mismo color que el fondo */
+    color: #3c4043; /* Color de texto gris oscuro */
+    padding: 9px 16px; /* Tamaño del botón */
+    border-radius: 4px; /* Esquinas ligeramente redondeadas */
+    font-size: 14px; /* Tamaño de fuente del botón */
+    font-family: arial, sans-serif; /* Asegura la tipografía Arial */
+    cursor: pointer; /* Puntero de mano */
+    transition: all 0.2s; /* Suaviza cualquier cambio visual */
+} 
 
-}
+/* IDIOMAS */
+.languages { 
+    margin-top: 25px; /* Separa el texto de idiomas de los botones */
+    font-size: 13px; /* Tamaño de texto pequeño */
+} 
 
-.tool-btn {
-    background: none;
-    border: none;
-    padding: 8px;
-    cursor: pointer;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
+.languages a { 
+    color: #1a0dab; /* El azul clásico de Google */
+    text-decoration: none; /* Sin subrayado inicial */
+    margin-left: 5px; /* Espacio entre el texto y el link */
+} 
 
-}
+/* PIE DE PÁGINA */
+.footer { 
+    background-color: #f2f2f2; /* Color de fondo gris para el footer */
+    border-top: 1px solid #e4e4e4; /* Línea divisoria superior */
+    display: flex; /* Alinea grupos de links a los extremos */
+    justify-content: space-between; /* Links a la izquierda y links a la derecha */
+    padding: 12px 25px; /* Espaciado interno */
+} 
 
-.tool-btn:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-
-/* EL BOTÓN DE MODO IA */
-.ai-button {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background-color: #f0f4f9;
-    /* Color grisáceo/azulado claro */
-    border: none;
-    border-radius: 24px;
-    padding: 8px 16px;
-    margin-left: 10px;
-    font-size: 14px;
-    font-weight: 500;
-    white-space: nowrap;
-    flex-shrink: 0;
-}
-
-.ai-button:hover {
-    background-color: #e3eaf3;
-}
-
-.ai-icon {
-    font-size: 18px;
-    color: #444746;
-}
-
-.buttons {
-    margin-top: 25px;
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-}
-
-.buttons button {
-    background-color: #f8f9fa;
-    border: 1px solid #f8f9fa;
-    color: #3c4043;
-    padding: 9px 16px;
-    border-radius: 4px;
-    font-size: 14px;
-    font-family: arial, sans-serif;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.buttons button:hover {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-    /* Sombra muy sutil */
-    background-color: #f8f9fa;
-    border: 1px solid #dadce0;
-    /* Se nota un borde gris claro al pasar el ratón */
-    color: #202124;
-    /* El texto se oscurece un poco */
-}
-
-.languages {
-    margin-top: 25px;
-    font-size: 13px;
-}
-
-.languages a {
-    color: #1a0dab;
-    text-decoration: none;
-    margin-left: 5px;
-}
-
-.footer {
-    background-color: #f2f2f2;
-    border-top: 1px solid #e4e4e4;
-    display: flex;
-    justify-content: space-between;
-    padding: 12px 25px;
-}
-
-.footer a {
-    text-decoration: none;
-    color: #5f6368;
-    font-size: 13px;
-    margin: 0 10px;
+.footer a { 
+    text-decoration: none; /* Quita subrayado */
+    color: #5f6368; /* Color de texto gris */
+    font-size: 13px; /* Tamaño pequeño */
+    margin: 0 10px; /* Separación horizontal entre links del footer */
 }

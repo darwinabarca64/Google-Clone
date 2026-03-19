@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es"> <!-- Define el idioma del documento para buscadores y lectores de pantalla -->
 
 <head>
-    <meta charset="UTF-8">
-    <title>Google Clone</title>
-    <link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8"> <!-- Asegura que se vean bien tildes y la letra 'ñ' -->
+    <title>Google Clone</title> <!-- El nombre que aparece en la pestaña del navegador -->
+    <link rel="stylesheet" href="style.css"> <!-- Conecta este HTML con tus reglas de diseño en CSS -->
 </head>
 
 <body>
+    <!-- 1. BARRA SUPERIOR: Contiene los enlaces de navegación y el perfil -->
     <header class="top-nav">
+        <!-- Agrupa enlaces a la izquierda para separarlos del resto usando Flexbox en CSS -->
         <div class="nav-left">
             <a href="#">Sobre Google</a>
             <a href="#">Tienda</a>
@@ -20,6 +21,7 @@
             <a href="#">Gmail</a>
             <a href="#">Imágenes</a>
 
+            <!-- Representa el icono de 'Apps' (los 9 puntos). Se usa una tabla para crear la cuadrícula visual -->
             <table class="iconos-cuadricula">
                 <tr>
                     <td></td>
@@ -38,72 +40,86 @@
                 </tr>
             </table>
 
-            <!-- Contenedor del avatar -->
+            <!-- Contenedor del avatar: Actúa como un botón circular para la foto de usuario -->
             <div class="google-avatar" onclick="changeImage()">
+                <!-- 'id' permite que el script "guíon" de abajo encuentre esta imagen exacta para cambiarla -->
                 <img id="random-avatar" src="https://picsum.photos/200" alt="Imagen circular">
             </div>
         </div>
 
+        <!-- Lógica para que el avatar cambie cada vez que haces clic (interactividad) -->
         <script>
             function changeImage() {
                 const img = document.getElementById('random-avatar');
-                // Añadimos un parámetro random para que el navegador no use la imagen en caché
+                // Al sumar Math.random, forzamos al navegador a pedir una imagen nueva en lugar de usar la anterior
                 img.src = "https://picsum.photos" + Math.random();
             }
         </script>
-
     </header>
 
-    <!-- Contenido Principal -->
+    <!-- 2. CONTENIDO CENTRAL: El buscador y el logo -->
     <main class="main-content">
-        <!-- Logo de Google hecho con letras individuales -->
+        <!-- Logo: Se divide en spans para poder dar a cada letra su color oficial mediante CSS -->
         <div class="logo-text">
             <span class="blue">G</span><span class="red">o</span><span class="yellow">o</span><span
                 class="blue">g</span><span class="green">l</span><span class="red">e</span>
+            <!-- Indica la región; suele estar alineado abajo a la derecha del logo -->
             <span class="country">España</span>
         </div>
 
+        <!-- El buscador principal -->
         <div class="search-wrapper">
-            <div class="search-bar">
-                <!-- Parte izquierda: Icono + y Texto -->
+            <!-- 'action' envía lo que escribas directamente al buscador real de Google -->
+            <form action="https://www.google.com" method="GET" class="search-bar">
+
+                <!-- Sección izquierda: Agrupa el botón de "+" y el área de escritura -->
                 <div class="search-input-wrapper">
-                    <button class="btn-plus">
+                    <button type="button" class="btn-plus">
                         <img src="iconos/plus-icon.svg" alt="Añadir" class="icon-svg-plus">
                     </button>
-                    <input type="text" placeholder="Buscar en Google o escribir una URL  " class="search-input">
+
+                    <!-- 'name="q"' es obligatorio: es el parámetro que espera Google para procesar la búsqueda -->
+                    <input type="text" name="q" placeholder="Buscar en Google o escribir una URL" class="search-input">
                 </div>
-                <!-- Parte derecha: Herramientas -->
+
+                <!-- Sección derecha: Agrupa las funciones interactivas (Voz, Lente, IA) -->
                 <div class="tools-container">
-                    <button class="tool-btn">
+                    <button type="button" class="tool-btn">
                         <img src="iconos/mic.svg" alt="Mic" class="icon-svg">
                     </button>
-                    <button class="tool-btn">
+                    <button type="button" class="tool-btn">
                         <img src="iconos/lens.svg" alt="Lens" class="icon-svg lens-img">
                     </button>
-                    <button class="ai-button">
+                    <!-- Botón de Modo IA: Incluye un span para el texto que aparece al lado del icono -->
+                    <button type="button" class="ai-button">
                         <img src="iconos/ia.svg" alt="IA" class="icon-svg">
                         <span>Modo IA</span>
                     </button>
                 </div>
-            </div>
+            </form>
         </div>
+
+        <!-- Botones de acción debajo de la barra de búsqueda -->
         <div class="buttons">
             <button>Buscar con Google</button>
             <button>Voy a tener suerte</button>
         </div>
 
+        <!-- Sección de idiomas: Enlaces simples para la localización del sitio -->
         <div class="languages">
             Google.es también en: <a href="#">Català</a> <a href="#">Galego</a> <a href="#">Euskara</a>
         </div>
     </main>
 
-    <!-- Barra Inferior -->
+    <!-- 3. PIE DE PÁGINA: Enlaces de información legal y configuración -->
     <footer class="footer">
+        <!-- Alineado a la izquierda mediante CSS -->
         <div class="footer-left">
             <a href="#">Publicidad</a>
             <a href="#">Empresa</a>
             <a href="#">Acerca de</a>
         </div>
+        <!-- Alineado a la derecha mediante CSS -->
         <div class="footer-right">
             <a href="#">Privacidad y condiciones</a>
             <a href="#">Configuración</a>

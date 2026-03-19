@@ -1,0 +1,45 @@
+html
+<div class="search-wrapper">
+    <!-- El formulario envía los datos a la URL de búsqueda de Google -->
+    <form action="https://www.google.com" method="GET" class="search-bar">
+        
+        <div class="search-input-wrapper">
+            <button type="button" class="btn-plus"> <!-- Importante: type="button" para que no envíe el formulario -->
+                <img src="iconos/plus-icon.svg" alt="Añadir" class="icon-svg-plus">
+            </button>
+            
+            <!-- El atributo name="q" es la clave para que Google entienda la búsqueda -->
+            <input type="text" name="q" placeholder="Buscar en Google o escribir una URL" class="search-input" autofocus>
+        </div>
+
+        <div class="tools-container">
+            <button type="button" class="tool-btn">
+                <img src="iconos/mic.svg" alt="Mic" class="icon-svg">
+            </button>
+            <button type="button" class="tool-btn">
+                <img src="iconos/lens.svg" alt="Lens" class="icon-svg lens-img">
+            </button>
+            <button type="button" class="ai-button">
+                <img src="iconos/ia.svg" alt="IA" class="icon-svg">
+                <span>Modo IA</span>
+            </button>
+        </div>
+    </form>
+</div>
+
+Para que la barra de búsqueda funcione de verdad, no se usa un hipervínculo (<a>), sino una etiqueta llamada <form> (formulario).
+Google utiliza un parámetro en su URL llamado q (de query) para recibir las búsquedas. Lo que haremos es "envolver" tu barra de búsqueda en este formulario para que, al pulsar Enter, envíe el texto directamente a Google.
+1. Qué cambiar en tu HTML
+Debes envolver tu search-bar con la etiqueta <form> y asegurarte de que el input tenga el atributo name="q".
+Sustituye tu bloque de la barra por este:
+
+
+xxx
+
+
+2. Qué cambió y por qué:
+<form action="..." method="GET">: Esto le dice al navegador: "Cuando el usuario presione Enter, agarra lo que haya escrito y llévalo a esa dirección de Google".
+name="q": Es obligatorio. Google espera que la palabra buscada se llame "q". Si pones otro nombre, no funcionará.
+type="button": En los botones de los iconos (plus, mic, lens), he añadido type="button". Si no lo haces, al hacer clic en el micrófono, el navegador pensará que quieres enviar el formulario y te sacará de la página.
+autofocus: Es un detalle extra para que el cursor ya aparezca parpadeando dentro de la barra nada más cargar la página.
+
